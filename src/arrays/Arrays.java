@@ -99,6 +99,34 @@ public class Arrays {
         iterateArray1(newArray);
     }
 
+    public static <T> void insertElementAtEnd(T[] array, T element) {
+        // create a new array with a length of the original array plus 1
+        T[] newArray = (T[]) new Object[array.length + 1];
+        // copy the elements from the original array to the new array
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
+        newArray[newArray.length - 1] = element;
+        array = newArray;
+        System.out.println("Inserted the element at the end of the array.");
+        // iterate over the new array
+        iterateArray1(newArray);
+    }
+
+    public static <T> void insertElementAtStart(T[] array, T element) {
+        // create a new array with a length of the original array plus 1
+        T[] newArray = (T[]) new Object[array.length + 1];
+        // copy the elements from the original array to the new array
+        for (int i = 1; i < newArray.length; i++) {
+            newArray[i] = array[i - 1];
+        }
+        newArray[0] = element;
+        array = newArray;
+        System.out.println("Inserted the element at the start of the array.");
+        // iterate over the new array
+        iterateArray1(newArray);
+    }
+
     public static <T> void insertElementAtIndex(T[] array, int index, T element) {
         // check if the array is empty
         if (array.length == 0) {

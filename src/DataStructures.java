@@ -9,7 +9,7 @@ public class DataStructures {
 
     }
 
-    // Created a menu so you can call either the temperature or coin method
+    // Created a menu so you can select which data structure you want to work with
     public static void menu(Scanner scanner) {
         while (true) {
             System.out.println("Select an operation:");
@@ -37,24 +37,39 @@ public class DataStructures {
                     System.out.println("Using a generic to pass whatever type of array you want to iterate over.");
                     Integer[] intArray = { 1, 2, 3, 4, 5 };
                     String[] stringArray = { "Hello", "World", "!" };
+
                     System.out.println("Iterating over an array using a for-each loop:");
                     Arrays.iterateArray1(intArray);
                     Arrays.iterateArray1(stringArray);
+
                     System.out.println("Iterating over an array using a for loop:");
                     Arrays.iterateArray2(intArray);
                     Arrays.iterateArray2(stringArray);
+
                     System.out.println("Removing the last element from an array:");
                     Arrays.removeEnd(intArray);
                     Arrays.removeEnd(stringArray);
+
                     System.out.println("Removing the first element from an array:");
                     Arrays.removeStart(intArray);
                     Arrays.removeStart(stringArray);
+
                     System.out.println("Remove an element from the array based on the index:");
                     Arrays.removeElementAtIndex(intArray, 2);
                     Arrays.removeElementAtIndex(stringArray, 1);
+
+                    System.out.println("Insert an element into the array at the end:");
+                    Arrays.insertElementAtEnd(intArray, 6);
+                    Arrays.insertElementAtEnd(stringArray, "!");
+
+                    System.out.println("Insert an element into the array at the beginning:");
+                    Arrays.insertElementAtStart(intArray, 0);
+                    Arrays.insertElementAtStart(stringArray, "Hello");
+
                     System.out.println("Insert an element into the array at a specific index:");
                     Arrays.insertElementAtIndex(intArray, 2, 3);
                     Arrays.insertElementAtIndex(stringArray, 1, "World");
+
                     System.out.println("Search for an element in the array:");
                     Arrays.searchElement(intArray, 3);
                     Arrays.searchElement(stringArray, "World");
