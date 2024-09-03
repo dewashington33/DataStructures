@@ -44,6 +44,7 @@ public class Arrays {
             return;
         }
         // create a new array with a length of the original array minus 1
+        @SuppressWarnings("unchecked")
         T[] newArray = (T[]) new Object[array.length - 1];
         // copy the elements from the original array to the new array
         for (int i = 0; i < newArray.length; i++) {
@@ -62,6 +63,7 @@ public class Arrays {
             return;
         }
         // create a new array with a length of the original array minus 1
+        @SuppressWarnings("unchecked")
         T[] newArray = (T[]) new Object[array.length - 1];
         // copy the elements from the original array to the new array
         for (int i = 1; i < array.length; i++) {
@@ -85,6 +87,7 @@ public class Arrays {
             return;
         }
         // create a new array with a length of the original array minus 1
+        @SuppressWarnings("unchecked")
         T[] newArray = (T[]) new Object[array.length - 1];
         // copy the elements from the original array to the new array
         for (int i = 0, j = 0; i < array.length; i++) {
@@ -101,6 +104,7 @@ public class Arrays {
 
     public static <T> void insertElementAtEnd(T[] array, T element) {
         // create a new array with a length of the original array plus 1
+        @SuppressWarnings("unchecked")
         T[] newArray = (T[]) new Object[array.length + 1];
         // copy the elements from the original array to the new array
         for (int i = 0; i < array.length; i++) {
@@ -115,7 +119,9 @@ public class Arrays {
 
     public static <T> void insertElementAtStart(T[] array, T element) {
         // create a new array with a length of the original array plus 1
+        @SuppressWarnings("unchecked")
         T[] newArray = (T[]) new Object[array.length + 1];
+
         // copy the elements from the original array to the new array
         for (int i = 1; i < newArray.length; i++) {
             newArray[i] = array[i - 1];
@@ -139,6 +145,7 @@ public class Arrays {
             return;
         }
         // create a new array with a length of the original array plus 1
+        @SuppressWarnings("unchecked")
         T[] newArray = (T[]) new Object[array.length + 1];
         // copy the elements from the original array to the new array
         for (int i = 0, j = 0; i < array.length; i++) {
