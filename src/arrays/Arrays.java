@@ -2,24 +2,7 @@ package arrays;
 
 public class Arrays {
 
-    public static <T> void iterateArray1(T[] array) {
-        // check if the array is empty
-        if (array.length == 0) {
-            System.out.println("The array is empty.");
-            return;
-        }
-        // iterate over the array using a for-each loop
-        System.out.print("[");
-        for (T element : array) {
-            System.out.print(element);
-            if (element != array[array.length - 1]) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println("]");
-    }
-
-    public static <T> void iterateArray2(T[] array) {
+    public static <T> void iterateArray(T[] array) {
         // check if the array is empty
         if (array.length == 0) {
             System.out.println("The array is empty.");
@@ -28,7 +11,7 @@ public class Arrays {
         // iterate over the array using a for loop
         System.out.print("[");
         for (int i = 0; i < array.length; i++) {
-            if (array[i] != array[array.length - 1]) {
+            if (i != array.length - 1) {
                 System.out.print(array[i] + ",");
             } else {
                 System.out.print(array[i]);
@@ -53,7 +36,7 @@ public class Arrays {
         array = newArray;
         System.out.println("Removed the last element from the array.");
         // iterate over the new array
-        iterateArray1(newArray);
+        iterateArray(newArray);
     }
 
     public static <T> void removeStart(T[] array) {
@@ -72,7 +55,7 @@ public class Arrays {
         array = newArray;
         System.out.println("Removed the first element from the array.");
         // iterate over the new array
-        iterateArray1(newArray);
+        iterateArray(newArray);
     }
 
     public static <T> void removeElementAtIndex(T[] array, int index) {
@@ -99,7 +82,7 @@ public class Arrays {
         array = newArray;
         System.out.println("Removed the element at index " + index + " from the array.");
         // iterate over the new array
-        iterateArray1(newArray);
+        iterateArray(newArray);
     }
 
     public static <T> void insertElementAtEnd(T[] array, T element) {
@@ -114,7 +97,7 @@ public class Arrays {
         array = newArray;
         System.out.println("Inserted the element at the end of the array.");
         // iterate over the new array
-        iterateArray1(newArray);
+        iterateArray(newArray);
     }
 
     public static <T> void insertElementAtStart(T[] array, T element) {
@@ -130,7 +113,7 @@ public class Arrays {
         array = newArray;
         System.out.println("Inserted the element at the start of the array.");
         // iterate over the new array
-        iterateArray1(newArray);
+        iterateArray(newArray);
     }
 
     public static <T> void insertElementAtIndex(T[] array, int index, T element) {
@@ -157,7 +140,7 @@ public class Arrays {
         array = newArray;
         System.out.println("Inserted the element at index " + index + " into the array.");
         // iterate over the new array
-        iterateArray1(newArray);
+        iterateArray(newArray);
     }
 
     public static <T> void searchElement(T[] array, T element) {
@@ -174,5 +157,43 @@ public class Arrays {
             }
         }
         System.out.println("The element " + element + " was not found in the array.");
+    }
+
+    public static <T> void uniqueValues(T[] array) {
+        // check if the array is empty
+        if (array.length == 0) {
+            System.out.println("The array is empty.");
+            return;
+        }
+        // create a new array to store the unique values
+        @SuppressWarnings("unchecked")
+        T[] uniqueArray = (T[]) new Object[array.length];
+        int uniqueIndex = 0;
+        // iterate over the original array
+        for (int i = 0; i < array.length; i++) {
+            boolean isUnique = true;
+            // check if the current element is unique
+            for (int j = 0; j < uniqueIndex; j++) {
+                if (array[i].equals(uniqueArray[j])) {
+                    isUnique = false;
+                    break;
+                }
+            }
+            // add the unique element to the unique array
+            if (isUnique) {
+                uniqueArray[uniqueIndex++] = array[i];
+            }
+        }
+        // create a new array with a length of the unique index
+        @SuppressWarnings("unchecked")
+        T[] newArray = (T[]) new Object[uniqueIndex];
+        // copy the unique elements to the new array
+        for (int i = 0; i < uniqueIndex; i++) {
+            newArray[i] = uniqueArray[i];
+        }
+        System.out.println("There are " + newArray.length + " unique values in the array are:");
+        // iterate over the new array
+        iterateArray(newArray);
+
     }
 }

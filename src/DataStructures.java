@@ -35,16 +35,12 @@ public class DataStructures {
                 case 1:
                     System.out.println("**** Arrays ****");
                     System.out.println("Using a generic to pass whatever type of array you want to iterate over.");
-                    Integer[] intArray = { 1, 2, 3, 4, 5 };
+                    Integer[] intArray = { 1, 2, 2, 3, 4, 5, 5, 6 };
                     String[] stringArray = { "Hello", "World", "!" };
 
                     System.out.println("Iterating over an array using a for-each loop:");
-                    Arrays.iterateArray1(intArray);
-                    Arrays.iterateArray1(stringArray);
-
-                    System.out.println("Iterating over an array using a for loop:");
-                    Arrays.iterateArray2(intArray);
-                    Arrays.iterateArray2(stringArray);
+                    Arrays.iterateArray(intArray);
+                    Arrays.iterateArray(stringArray);
 
                     System.out.println("Removing the last element from an array:");
                     Arrays.removeEnd(intArray);
@@ -73,6 +69,15 @@ public class DataStructures {
                     System.out.println("Search for an element in the array:");
                     Arrays.searchElement(intArray, 3);
                     Arrays.searchElement(stringArray, "World");
+
+                    System.out.println("Unique Values in an Array:");
+                    System.out.println("Original Array:");
+                    Arrays.iterateArray(intArray);
+                    Arrays.iterateArray(stringArray);
+                    System.out.println("Unique Values:");
+                    Arrays.uniqueValues(intArray);
+                    Arrays.uniqueValues(stringArray);
+
                     break;
                 case 2:
 
